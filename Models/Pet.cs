@@ -17,14 +17,14 @@ namespace HUELLAS_PNT1.Models
         [Display(Name = "Edad")]
         public int Age { get; set; }
         [Display(Name = "Tipo de Mascota")]
-        [EnumDataType(typeof(Type))]
-        public Type Type { get; set; }
+        [EnumDataType(typeof(Tipo))]
+        public Tipo Type { get; set; }
         [Display(Name = "Tamaño")]
         [EnumDataType(typeof(Size))]
         public Size Size { get; set; }
         [Display(Name = "Sexo")]
         [EnumDataType(typeof(Gender))]
-        public Gender gender { get; set; }
+        public Gender Gender { get; set; }
         [Display(Name = "Vacunado")]
         public Boolean Vaccinated { get; set; }
         [Display(Name = "Castrado")]
