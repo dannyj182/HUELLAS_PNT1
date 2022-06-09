@@ -7,8 +7,8 @@ namespace HUELLAS_PNT1.Models
 {
     public enum Size
     {
-        SMALL,
-        MEDIUM,
-        BIG
+        Pequeño,
+        Mediano,
+        Grande
     }
 }

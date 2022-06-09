@@ -7,7 +7,7 @@ namespace HUELLAS_PNT1.Models
 {
     public enum Gender
     {
-        FEMALE,
-        MALE
+        Hembra,
+        Macho
     }
 }
