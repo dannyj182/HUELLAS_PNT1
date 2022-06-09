@@ -12,10 +12,10 @@ namespace HUELLAS_PNT1.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(nullable: true),
-                    Telephone = table.Column<int>(nullable: false),
+                    NombreCompleto = table.Column<string>(nullable: true),
+                    Telefono = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    PetOfInterest = table.Column<string>(nullable: true)
+                    MascotaDeInteres = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,14 +28,14 @@ namespace HUELLAS_PNT1.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Age = table.Column<int>(nullable: false),
-                    Type = table.Column<int>(nullable: false),
-                    Size = table.Column<int>(nullable: false),
-                    gender = table.Column<int>(nullable: false),
-                    Vaccinated = table.Column<bool>(nullable: false),
-                    Castrated = table.Column<bool>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    Nombre = table.Column<string>(nullable: true),
+                    Edad = table.Column<int>(nullable: false),
+                    Tipo = table.Column<int>(nullable: false),
+                    Tamanio = table.Column<int>(nullable: false),
+                    Genero = table.Column<int>(nullable: false),
+                    Vacunado = table.Column<bool>(nullable: false),
+                    Castrado = table.Column<bool>(nullable: false),
+                    Descripcion = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

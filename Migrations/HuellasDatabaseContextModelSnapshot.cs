@@ -14,11 +14,11 @@ namespace HUELLAS_PNT1.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HUELLAS_PNT1.Models.Adopter", b =>
+            modelBuilder.Entity("HUELLAS_PNT1.Models.Interesado", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,13 +28,13 @@ namespace HUELLAS_PNT1.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("MascotaDeInteres")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PetOfInterest")
+                    b.Property<string>("NombreCompleto")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Telephone")
+                    b.Property<int>("Telefono")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -42,36 +42,36 @@ namespace HUELLAS_PNT1.Migrations
                     b.ToTable("Adopters");
                 });
 
-            modelBuilder.Entity("HUELLAS_PNT1.Models.Pet", b =>
+            modelBuilder.Entity("HUELLAS_PNT1.Models.Mascota", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Castrated")
+                    b.Property<bool>("Castrado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Genero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Size")
+                    b.Property<int>("Tamanio")
                         .HasColumnType("int");
 
-                    b.Property<int>("Type")
+                    b.Property<int>("Tipo")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Vaccinated")
+                    b.Property<bool>("Vacunado")
                         .HasColumnType("bit");
-
-                    b.Property<int>("gender")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

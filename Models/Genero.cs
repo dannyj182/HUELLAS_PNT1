@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HUELLAS_PNT1.Models
 {
-    public enum Gender
+    public enum Genero
     {
         Hembra,
         Macho
