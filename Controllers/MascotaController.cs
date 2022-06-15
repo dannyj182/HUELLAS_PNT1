@@ -10,22 +10,22 @@ using HUELLAS_PNT1.Models;
 
 namespace HUELLAS_PNT1.Controllers
 {
-    public class PetController : Controller
+    public class MascotaController : Controller
     {
         private readonly HuellasDatabaseContext _context;
 
-        public PetController(HuellasDatabaseContext context)
+        public MascotaController(HuellasDatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: Pet
+        // GET: Mascota
         public async Task<IActionResult> Index()
         {
             return View(await _context.Pets.ToListAsync());
         }
 
-        // GET: Pet/Details/5
+        // GET: Mascota/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace HUELLAS_PNT1.Controllers
                 return NotFound();
             }
 
-            var pet = await _context.Pets
+            var mascota = await _context.Pets
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pet == null)
+            if (mascota == null)
             {
                 return NotFound();
             }
 
-            return View(pet);
+            return View(mascota);
         }
 
-        // GET: Pet/Create
+        // GET: Mascota/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pet/Create
+        // POST: Mascota/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Age,Type,Size,gender,Vaccinated,Castrated,Description")] Pet pet)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Edad,Tipo,Tamanio,Genero,Vacunado,Castrado,Descripcion")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pet);
+                _context.Add(mascota);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pet);
+            return View(mascota);
         }
 
-        // GET: Pet/Edit/5
+        // GET: Mascota/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace HUELLAS_PNT1.Controllers
                 return NotFound();
             }
 
-            var pet = await _context.Pets.FindAsync(id);
-            if (pet == null)
+            var mascota = await _context.Pets.FindAsync(id);
+            if (mascota == null)
             {
                 return NotFound();
             }
-            return View(pet);
+            return View(mascota);
         }
 
-        // POST: Pet/Edit/5
+        // POST: Mascota/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Age,Type,Size,gender,Vaccinated,Castrated,Description")] Pet pet)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Edad,Tipo,Tamanio,Genero,Vacunado,Castrado,Descripcion")] Mascota mascota)
         {
-            if (id != pet.Id)
+            if (id != mascota.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace HUELLAS_PNT1.Controllers
             {
                 try
                 {
-                    _context.Update(pet);
+                    _context.Update(mascota);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PetExists(pet.Id))
+                    if (!MascotaExists(mascota.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace HUELLAS_PNT1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pet);
+            return View(mascota);
         }
 
-        // GET: Pet/Delete/5
+        // GET: Mascota/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,28 +124,28 @@ namespace HUELLAS_PNT1.Controllers
                 return NotFound();
             }
 
-            var pet = await _context.Pets
+            var mascota = await _context.Pets
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (pet == null)
+            if (mascota == null)
             {
                 return NotFound();
             }
 
-            return View(pet);
+            return View(mascota);
         }
 
-        // POST: Pet/Delete/5
+        // POST: Mascota/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pet = await _context.Pets.FindAsync(id);
-            _context.Pets.Remove(pet);
+            var mascota = await _context.Pets.FindAsync(id);
+            _context.Pets.Remove(mascota);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PetExists(int id)
+        private bool MascotaExists(int id)
         {
             return _context.Pets.Any(e => e.Id == id);
         }

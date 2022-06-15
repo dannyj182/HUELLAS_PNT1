@@ -10,22 +10,22 @@ using HUELLAS_PNT1.Models;
 
 namespace HUELLAS_PNT1.Controllers
 {
-    public class AdopterController : Controller
+    public class InteresadoController : Controller
     {
         private readonly HuellasDatabaseContext _context;
 
-        public AdopterController(HuellasDatabaseContext context)
+        public InteresadoController(HuellasDatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: Adopter
+        // GET: Interesado
         public async Task<IActionResult> Index()
         {
             return View(await _context.Adopters.ToListAsync());
         }
 
-        // GET: Adopter/Details/5
+        // GET: Interesado/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace HUELLAS_PNT1.Controllers
                 return NotFound();
             }
 
-            var adopter = await _context.Adopters
+            var interesado = await _context.Adopters
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (adopter == null)
+            if (interesado == null)
             {
                 return NotFound();
             }
 
-            return View(adopter);
+            return View(interesado);
         }
 
-        // GET: Adopter/Create
+        // GET: Interesado/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Adopter/Create
+        // POST: Interesado/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Telephone,Email,PetOfInterest")] Adopter adopter)
+        public async Task<IActionResult> Create([Bind("Id,NombreCompleto,Telefono,Email,MascotaDeInteres")] Interesado interesado)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(adopter);
+                _context.Add(interesado);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(adopter);
+            return View(interesado);
         }
 
-        // GET: Adopter/Edit/5
+        // GET: Interesado/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace HUELLAS_PNT1.Controllers
                 return NotFound();
             }
 
-            var adopter = await _context.Adopters.FindAsync(id);
-            if (adopter == null)
+            var interesado = await _context.Adopters.FindAsync(id);
+            if (interesado == null)
             {
                 return NotFound();
             }
-            return View(adopter);
+            return View(interesado);
         }
 
-        // POST: Adopter/Edit/5
+        // POST: Interesado/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Telephone,Email,PetOfInterest")] Adopter adopter)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreCompleto,Telefono,Email,MascotaDeInteres")] Interesado interesado)
         {
-            if (id != adopter.Id)
+            if (id != interesado.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace HUELLAS_PNT1.Controllers
             {
                 try
                 {
-                    _context.Update(adopter);
+                    _context.Update(interesado);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AdopterExists(adopter.Id))
+                    if (!InteresadoExists(interesado.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace HUELLAS_PNT1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(adopter);
+            return View(interesado);
         }
 
-        // GET: Adopter/Delete/5
+        // GET: Interesado/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,28 +124,28 @@ namespace HUELLAS_PNT1.Controllers
                 return NotFound();
             }
 
-            var adopter = await _context.Adopters
+            var interesado = await _context.Adopters
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (adopter == null)
+            if (interesado == null)
             {
                 return NotFound();
             }
 
-            return View(adopter);
+            return View(interesado);
         }
 
-        // POST: Adopter/Delete/5
+        // POST: Interesado/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var adopter = await _context.Adopters.FindAsync(id);
-            _context.Adopters.Remove(adopter);
+            var interesado = await _context.Adopters.FindAsync(id);
+            _context.Adopters.Remove(interesado);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AdopterExists(int id)
+        private bool InteresadoExists(int id)
         {
             return _context.Adopters.Any(e => e.Id == id);
         }

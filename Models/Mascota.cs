@@ -7,30 +7,29 @@ using System.Threading.Tasks;
 
 namespace HUELLAS_PNT1.Models
 {
-    public class Pet
+    public class Mascota
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Display(Name = "Nombre")]
-        public String Name { get; set; }
+        public String Nombre { get; set; }
         [Display(Name = "Edad")]
-        public int Age { get; set; }
+        public int Edad { get; set; }
         [Display(Name = "Tipo de Mascota")]
         [EnumDataType(typeof(Tipo))]
-        public Tipo Type { get; set; }
+        public Tipo Tipo { get; set; }
         [Display(Name = "Tamaño")]
-        [EnumDataType(typeof(Size))]
-        public Size Size { get; set; }
+        [EnumDataType(typeof(Tamanio))]
+        public Tamanio Tamanio { get; set; }
         [Display(Name = "Sexo")]
-        [EnumDataType(typeof(Gender))]
-        public Gender Gender { get; set; }
+        [EnumDataType(typeof(Genero))]
+        public Genero Genero { get; set; }
         [Display(Name = "Vacunado")]
-        public Boolean Vaccinated { get; set; }
+        public Boolean Vacunado { get; set; }
         [Display(Name = "Castrado")]
-        public Boolean Castrated { get; set; }
+        public Boolean Castrado { get; set; }
         [Display(Name = "Descripción")]
-        public String Description { get; set; }
+        public String Descripcion { get; set; }
 
     }
 }

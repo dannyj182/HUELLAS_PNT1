@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HUELLAS_PNT1.Models
 {
-    public enum Size
+    public enum Tamanio
     {
         Pequeño,
         Mediano,
