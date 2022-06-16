@@ -46,6 +46,7 @@ namespace HUELLAS_PNT1.Controllers
         // GET: Interesado/Create
         public IActionResult Create()
         {
+            //Crear viewBag o viewData
             return View();
         }
 
