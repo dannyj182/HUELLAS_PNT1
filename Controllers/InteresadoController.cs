@@ -46,7 +46,13 @@ namespace HUELLAS_PNT1.Controllers
         // GET: Interesado/Create
         public IActionResult Create()
         {
-            //Crear viewBag o viewData
+
+            this.ViewData["MyPets"] = _context.Pets.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Nombre.ToString()
+            }).ToList();
+
             return View();
         }
 
@@ -67,8 +73,16 @@ namespace HUELLAS_PNT1.Controllers
         }
 
         // GET: Interesado/Edit/5
+
         public async Task<IActionResult> Edit(int? id)
         {
+            this.ViewData["MyPets"] = _context.Pets.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Nombre.ToString()
+            }).ToList();
+
+
             if (id == null)
             {
                 return NotFound();
@@ -87,6 +101,7 @@ namespace HUELLAS_PNT1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, [Bind("Id,NombreCompleto,Telefono,Email,MascotaDeInteres")] Interesado interesado)
         {
             if (id != interesado.Id)
