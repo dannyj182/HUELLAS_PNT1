@@ -14,6 +14,9 @@ namespace HUELLAS_PNT1.Models
 
    
         public int Id { get; set; }
+        public int IdMascota { get; set; }
+
+
 
         [Required(ErrorMessage = "Nombre y Apellido es requerido")]
         [Display(Name = "Nombre y Apellido")]
@@ -26,7 +29,7 @@ namespace HUELLAS_PNT1.Models
         public String Telefono { get; set; }
 
         [Required(ErrorMessage = "Email es requerido")]
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
         ErrorMessage = "Ingrese un formato de email válido")]
         [Display(Name = "Email")]
         public String Email { get; set; }

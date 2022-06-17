@@ -9,6 +9,10 @@ namespace HUELLAS_PNT1.Context
 {
     public class HuellasDatabaseContext : DbContext
     {
+        public HuellasDatabaseContext()
+        {
+        }
+
         public
        HuellasDatabaseContext(DbContextOptions<HuellasDatabaseContext> options)
        : base(options)
