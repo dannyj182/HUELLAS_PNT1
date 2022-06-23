@@ -22,7 +22,23 @@ namespace HUELLAS_PNT1.Controllers
         // GET: Interesado
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Adopters.ToListAsync());
+           //var masc = _context.Adopters.Join(_context.Pets, inte => inte.IdMascota, masco => masco.Id, (inte, masco) => 
+           //new(inte, masco)).toList();
+
+            
+            var mascotasNombres = await (from d in _context.Adopters
+                               join f in _context.Pets
+                                on d.IdMascota equals f.Id
+                               select d).ToListAsync();
+           
+            //List<Interesado> interesados = await _context.Adopters.Include("Mascota").ToListAsync();
+            //Interesado interesado = new Interesado();
+            //ViewBag.nombres = interesados;
+            return View(mascotasNombres);
+
+            //return View(await _context.Adopters.ToListAsync());
+
+
         }
 
         // GET: Interesado/Details/5
@@ -46,14 +62,9 @@ namespace HUELLAS_PNT1.Controllers
         // GET: Interesado/Create
         public IActionResult Create()
         {
-
-            this.ViewData["MyPets"] = _context.Pets.Select(x => new SelectListItem
-            {
-                Value = x.Id.ToString(),
-                Text = x.Nombre.ToString()
-            }).ToList();
-
-            return View();
+                var _misMascotas = new SelectList(_context.Pets.ToList(), "Id", "Nombre", null);
+                ViewBag.MisMascotas = _misMascotas;
+                return View();
         }
 
         // POST: Interesado/Create
@@ -76,11 +87,8 @@ namespace HUELLAS_PNT1.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            this.ViewData["MyPets"] = _context.Pets.Select(x => new SelectListItem
-            {
-                Value = x.Id.ToString(),
-                Text = x.Nombre.ToString()
-            }).ToList();
+            var _misMascotas = new SelectList(_context.Pets.ToList(), "Id", "Nombre", null);
+            ViewBag.MisMascotas = _misMascotas;
 
 
             if (id == null)
