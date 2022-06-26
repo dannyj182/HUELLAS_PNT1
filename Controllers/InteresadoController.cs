@@ -22,22 +22,36 @@ namespace HUELLAS_PNT1.Controllers
         // GET: Interesado
         public async Task<IActionResult> Index()
         {
-           //var masc = _context.Adopters.Join(_context.Pets, inte => inte.IdMascota, masco => masco.Id, (inte, masco) => 
-           //new(inte, masco)).toList();
+            List<InteresadoMascotaVM> _misInteresados = new List<InteresadoMascotaVM>();
 
-            
-            var mascotasNombres = await (from d in _context.Adopters
-                               join f in _context.Pets
-                                on d.IdMascota equals f.Id
-                               select d).ToListAsync();
-           
-            //List<Interesado> interesados = await _context.Adopters.Include("Mascota").ToListAsync();
-            //Interesado interesado = new Interesado();
-            //ViewBag.nombres = interesados;
-            return View(mascotasNombres);
+            var _miconsulta =  await (from Inte in _context.Adopters
+                               join Masco in _context.Pets on Inte.IdMascota equals Masco.Id
 
-            //return View(await _context.Adopters.ToListAsync());
+                               select new { NombreInter = Inte.NombreCompleto, NombreMasco = Masco.Nombre, IdInteresado = Inte.Id, TelInteresado = Inte.Telefono, MailInteresado = Inte.Email }).ToListAsync();
 
+
+            foreach ( var item in  _miconsulta)
+
+            {
+                InteresadoMascotaVM objInteresado = new InteresadoMascotaVM()
+                {
+                    NombreInteresado =  item.NombreInter,
+
+                    NombreMascota = item.NombreMasco,
+
+                    IdInteresado = item.IdInteresado,
+
+                    TelInteresado = item.TelInteresado,
+
+                    MailInteresado = item.MailInteresado
+                };
+
+                _misInteresados.Add(objInteresado);
+
+
+            }
+
+            return View (_misInteresados);
 
         }
 
