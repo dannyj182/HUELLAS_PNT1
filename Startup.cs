@@ -48,7 +48,6 @@ namespace HUELLAS_PNT1
                 
                 services.Configure<CookiePolicyOptions>(options =>
                 {
-                    // This lambda determines whether user consent for nonessential cookies is needed for a given request.
                     options.CheckConsentNeeded = context => true;
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
@@ -56,7 +55,6 @@ namespace HUELLAS_PNT1
                 services.ConfigureApplicationCookie(options =>
                 {
                     options.LoginPath = new PathString("/Identity/Account/Login");
-                    //other properties
                 });
 
             }
