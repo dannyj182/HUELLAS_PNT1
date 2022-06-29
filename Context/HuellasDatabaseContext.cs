@@ -20,6 +20,7 @@ namespace HUELLAS_PNT1.Context
         }
         public DbSet<Mascota> Pets { get; set; }
         public DbSet<Interesado> Adopters { get; set; }
+        public DbSet<Usuario> Users { get; set; }
     }
 }
 

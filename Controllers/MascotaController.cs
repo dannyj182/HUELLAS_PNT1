@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HUELLAS_PNT1.Context;
 using HUELLAS_PNT1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HUELLAS_PNT1.Controllers
 {
@@ -18,7 +19,6 @@ namespace HUELLAS_PNT1.Controllers
         {
             _context = context;
         }
-
         // GET: Mascota
         public async Task<IActionResult> Index()
         {
