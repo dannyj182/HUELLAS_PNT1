@@ -1,0 +1,30 @@
+﻿
+@model IEnumerable<HUELLAS_PNT1.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Mascotas";
+}
+
+
+
+@foreach (var item in Model)
+{
+    <div class="d-lg-inline-flex d-sm-flex justify-content-center mb-2 align-items-center" >
+            <div class="card mb-3" style="width: 18rem;">
+                <img class="card-img-top" src="http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43bbdc.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hola, soy @Html.DisplayFor(modelItem => item.Nombre)</h5>
+                    <p class="card-text">Edad: @Html.DisplayFor(modelItem => item.Edad)</p>
+                    <p class="card-text">Tipo :@Html.DisplayFor(modelItem => item.Tipo)</p>
+                    <p class="card-text">Tamaño: @Html.DisplayFor(modelItem => item.Tamanio)</p>
+                    <p class="card-text">Género: @Html.DisplayFor(modelItem => item.Genero)</p>
+                    <p class="card-text">Vacunado : @Html.DisplayFor(modelItem => item.Vacunado)</p>
+                    <p class="card-text">Castrado : @Html.DisplayFor(modelItem => item.Castrado)</p>
+                    <p class="card-text">Descripción: @Html.DisplayFor(modelItem => item.Descripcion)</p>
+                    <a href="#" class="btn btn-primary text-light">Consultar</a>
+                </div>
+            </div>
+    </div>
+
+}
+
