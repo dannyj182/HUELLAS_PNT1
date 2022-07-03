@@ -82,8 +82,8 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    _logger.LogInformation("Usuario logueado");
+                    return LocalRedirect("~/Home/BackOffice");
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -91,7 +91,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("El usuario se ha deslogueado.");
                     return RedirectToPage("./Lockout");
                 }
                 else

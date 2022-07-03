@@ -15,7 +15,7 @@ namespace HUELLAS_PNT1.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.25")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -32,10 +32,6 @@ namespace HUELLAS_PNT1.Migrations
 
                     b.Property<int>("IdMascota")
                         .HasColumnType("int");
-
-                    b.Property<string>("MascotaDeInteres")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreCompleto")
                         .IsRequired()

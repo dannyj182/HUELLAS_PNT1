@@ -34,10 +34,6 @@ namespace HUELLAS_PNT1.Models
         [Display(Name = "Email")]
         public String Email { get; set; }
 
-        [Required(ErrorMessage = "El nombre de mascota es requerido")]
-        [Display(Name = "Mascota de Interés")]
-        public String MascotaDeInteres { get; set; }
-
 
     }
 }

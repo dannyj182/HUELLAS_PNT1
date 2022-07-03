@@ -86,7 +86,7 @@ namespace HUELLAS_PNT1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NombreCompleto,Telefono,Email,MascotaDeInteres")] Interesado interesado)
+        public async Task<IActionResult> Create([Bind("Id,NombreCompleto,Telefono,Email,IdMascota")] Interesado interesado)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +124,7 @@ namespace HUELLAS_PNT1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreCompleto,Telefono,Email,MascotaDeInteres")] Interesado interesado)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreCompleto,Telefono,Email,IdMascota")] Interesado interesado)
         {
             if (id != interesado.Id)
             {

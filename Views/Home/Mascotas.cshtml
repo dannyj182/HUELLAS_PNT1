@@ -11,7 +11,7 @@
 {
     <div class="d-lg-inline-flex d-sm-flex justify-content-center mb-2 align-items-center" >
             <div class="card mb-3" style="width: 18rem;">
-                <img class="card-img-top" src="http://assets.stickpng.com/thumbs/580b57fbd9996e24bc43bbdc.png" alt="Card image cap">
+                <img class="card-img-top" src="https://e7.pngegg.com/pngimages/552/1/png-clipart-dogs-dogs.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Hola, soy @Html.DisplayFor(modelItem => item.Nombre)</h5>
                     <p class="card-text">Edad: @Html.DisplayFor(modelItem => item.Edad)</p>
@@ -21,7 +21,7 @@
                     <p class="card-text">Vacunado : @Html.DisplayFor(modelItem => item.Vacunado)</p>
                     <p class="card-text">Castrado : @Html.DisplayFor(modelItem => item.Castrado)</p>
                     <p class="card-text">Descripción: @Html.DisplayFor(modelItem => item.Descripcion)</p>
-                    <a href="#" class="btn btn-primary text-light">Consultar</a>
+                    <a class="btn btn-primary text-light" asp-area="" asp-controller="Home" asp-action="Contacto" asp-route-id="@item.Id">Consultar</a>
                 </div>
             </div>
     </div>

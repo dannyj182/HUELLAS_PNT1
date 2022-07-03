@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HUELLAS_PNT1.Migrations
 {
     [DbContext(typeof(HuellasDatabaseContext))]
-    [Migration("20220627013205_Identity")]
-    partial class Identity
+    [Migration("20220703210717_cracionBase")]
+    partial class cracionBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.25")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -34,10 +34,6 @@ namespace HUELLAS_PNT1.Migrations
 
                     b.Property<int>("IdMascota")
                         .HasColumnType("int");
-
-                    b.Property<string>("MascotaDeInteres")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreCompleto")
                         .IsRequired()

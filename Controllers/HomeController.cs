@@ -26,8 +26,6 @@ namespace HUELLAS_PNT1.Controllers
             _logger = logger;
             _context = context;
         }
-        
- 
 
         public IActionResult Index()
         {
@@ -38,7 +36,12 @@ namespace HUELLAS_PNT1.Controllers
         {
             return View();
         }
-    
+
+        public IActionResult BackOffice()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Mascotas()
         {
             return View(await _context.Pets.ToListAsync());
@@ -50,7 +53,22 @@ namespace HUELLAS_PNT1.Controllers
             var _misMascotas = new SelectList(_context.Pets.ToList(), "Id", "Nombre", null);
             ViewBag.MisMascotas = _misMascotas;
             return View();
+
         }
+
+        [HttpPost]
+            [ValidateAntiForgeryToken]
+            public async Task<IActionResult> Create([Bind("Id,NombreCompleto,Telefono,Email,IdMascota")] Interesado interesado)
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(interesado);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(interesado);
+            }
+
 
 
 
