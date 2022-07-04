@@ -1,0 +1,56 @@
+﻿.body-container {
+    background: url("../images/fondo-home.png") no-repeat center center fixed;
+}
+
+.navbar-propia {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.footer-propio {
+    background-color: #508D70;
+}
+
+.navbar-collapse{
+    flex-grow:0 !important;
+}
+
+nav .container{
+    align-items:normal !important;
+    padding-left:4rem;
+    padding-right: 4rem;
+  
+}
+
+.logout-propio{
+    border:none;
+}
+
+.btn-propio {
+    margin-top: 2rem;
+    background-color: #FFBA5C;
+    padding: 0.4rem 2.5rem;
+    font-size:1.5rem;
+    text-align:center;
+    border-radius: 10px;
+}
+
+
+.container-inicio-perro {
+    margin-top: 13rem;
+    padding: 5rem;
+    border-radius: 13px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-container{
+    margin:0 !important;
+    padding:0 !important;
+
+}
+@media (max-width: 600px) {
+    .container-inicio-perro {
+        margin-top: 5rem;
+    }
+}
