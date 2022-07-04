@@ -11,28 +11,28 @@
     <link rel="stylesheet" href="~/css/home.css" />
 </head>
 <body class="body-front text-center">
-    <h1 class=" h1-contacto">@ViewData["Title"]</h1>
+    <h1 class=" h1-contacto">@ViewData["Title"] 📧</h1>
     <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
         <div class="col-md-4">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="NombreCompleto" class="control-label"></label>
-                    <input asp-for="NombreCompleto" class="form-control" />
+                    <label asp-for="NombreCompleto" class="control-label h6"></label>
+                    <input asp-for="NombreCompleto" class="form-control"  />
                     <span asp-validation-for="NombreCompleto" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Telefono" class="control-label"></label>
+                    <label asp-for="Telefono" class="control-label h6"></label>
                     <input asp-for="Telefono" class="form-control" />
                     <span asp-validation-for="Telefono" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
+                    <label asp-for="Email" class="control-label h6"></label>
+                    <input asp-for="Email" class="form-control"/>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="IdMascota" class="control-label"></label>
+                    <label asp-for="IdMascota" class="control-label h6"></label>
                     <select asp-for=" IdMascota" class="form-control" asp-items="@ViewBag.MisMascotas">
                         <option selected="selected" value="">Seleccione una</option>
                     </select>
