@@ -14,6 +14,9 @@ namespace HUELLAS_PNT1.Models
 
    
         public int Id { get; set; }
+        
+        [Required(ErrorMessage = "La mascota de interés es requerida")]
+        [Display(Name = "Mascota de Interés")]
         public int IdMascota { get; set; }
 
 

@@ -1,4 +1,11 @@
-﻿.body-container {
+﻿:root {
+    --fondo-front: rgb(255,209,133, 0.4);
+    --btn-color-fondo: #FFBA5C;
+}
+
+
+
+.body-container {
     background: url("../images/fondo-home.png") no-repeat center center fixed;
 }
 
@@ -29,10 +36,25 @@ nav .container{
 
 .btn-propio {
     margin-top: 2rem;
-    background-color: #FFBA5C;
+    background-color: var(--btn-color-fondo);
     padding: 0.4rem 2.5rem;
-    font-size:1.5rem;
-    text-align:center;
+    border-color:none;
+    outline:none;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.h1-contacto{
+    margin-top:6rem;
+}
+
+.btn-form {
+    margin-top: 2rem;
+    background-color: var(--btn-color-fondo);
+    padding: 0.4rem 2.5rem;
+    font-size: 1.5rem;
+    text-align: center;
     border-radius: 10px;
 }
 
@@ -49,6 +71,11 @@ nav .container{
     padding:0 !important;
 
 }
+
+.body-front {
+    background-color: var(--fondo-front);
+}
+
 @media (max-width: 600px) {
     .container-inicio-perro {
         margin-top: 5rem;
