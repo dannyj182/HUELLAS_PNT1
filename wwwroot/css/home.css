@@ -1,6 +1,7 @@
 ﻿:root {
     --fondo-front: rgb(255,209,133, 0.4);
     --btn-color-fondo: #FFBA5C;
+    --h1-color: #FDB043;
 }
 
 
@@ -30,8 +31,18 @@ nav .container{
   
 }
 
-.logout-propio{
-    border:none;
+.nosotros-img{
+    width:45rem;
+    height:22rem;
+    margin: 0 auto;
+}
+
+.container-nosotros{
+    margin-top:3rem;
+}
+
+.logout-propio {
+    border: none;
 }
 
 .btn-propio {
@@ -45,8 +56,9 @@ nav .container{
     border-radius: 10px;
 }
 
-.h1-contacto{
-    margin-top:6rem;
+.h1-contacto {
+    margin-top: 6rem;
+    color: var(--h1-color);
 }
 
 .btn-form {
@@ -79,5 +91,10 @@ nav .container{
 @media (max-width: 600px) {
     .container-inicio-perro {
         margin-top: 5rem;
+    }
+
+    .nosotros-img {
+        width: 25rem;
+        height: 10rem;
     }
 }

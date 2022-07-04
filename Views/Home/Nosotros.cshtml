@@ -1,13 +1,33 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-    ViewData["Title"] = "Nosotros";
-}
+@{ ViewData["Title"] = "Nosotros"; }
 
-<h1 class="text-center">@ViewData["Title"]</h1>
 
-<div class="container d-flex flex-row mt-4">
-    <p class="mr-2">Lorem ipdsfsdffffffffffffffffffffffff</p>
-    <img class="img-fluid card-img-top" src="https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F07%2F25%2Fwoman-training-dog-157591149-2000.jpg" alt="img"/>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-front ">
+    <h1 class="text-center h1-contacto">@ViewData["Title"] 🏡</h1>
+
+    <div class="container d-flex flex-column container-nosotros justify-content-center">
+        <p>Somos una organización sin fines de lucro liderada por un grupo de voluntarios que buscan superar la situación de sobrepoblación, abandono, crueldad e indiferencia que viven millones de animales en nuestro país. (Buenos Aires/ Argentina). Propiciamos una actitud de respeto hacia todas las especies, entendiendo que no son “cosas” para ser utilizadas por el ser humano. Rechazamos todo tipo de explotación animal, incluyendo su uso como vestimenta, comida, entretenimiento y experimentación.</p>
+        <img class="img-fluid card-img-top nosotros-img mt-4 mb-4" src="https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F07%2F25%2Fwoman-training-dog-157591149-2000.jpg" alt="img" />
+    </div>
+    <div class="mt-5 mb-5">
+        <h4 class="font-weight-bold mb-4">
+            Nuestros objetivos
+        </h4>
+        <p>
+            🎯 Luchar contra el abandono, el maltrato y el sufrimiento animal.<br /><br /> 
+            🎯 Educar sobre el respeto por la vida de los animales a través de charlas y talleres educativos en lugares públicos y privados.<br /><br />
+            🎯 Organizar campañas de castración gratuitas y/o a bajo costo en las zonas vulnerables donde el Estado está ausente y los perros y gatos se reproducen sin control.<br /><br />
+            🎯 Concientizar sobre la importancia de las castraciones masivas, gratuitas, sistemáticas y extensivas como único método ético de control de la superpoblación animal y exigir al Estado que cumpla con la normativa vigente.<br /><br />
+            
+        </p>
+    </div>
+   
+</body>
+</html>
