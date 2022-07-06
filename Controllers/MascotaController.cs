@@ -54,7 +54,7 @@ namespace HUELLAS_PNT1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Edad,Tipo,Tamanio,Genero,Vacunado,Castrado,Descripcion")] Mascota mascota)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Edad,Tipo,Tamanio,Genero,Vacunado,Castrado,Descripcion,Imagen")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace HUELLAS_PNT1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Edad,Tipo,Tamanio,Genero,Vacunado,Castrado,Descripcion")] Mascota mascota)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Edad,Tipo,Tamanio,Genero,Vacunado,Castrado,Descripcion,Imagen")] Mascota mascota)
         {
             if (id != mascota.Id)
             {

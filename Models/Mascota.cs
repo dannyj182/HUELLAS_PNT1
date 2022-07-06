@@ -21,7 +21,7 @@ namespace HUELLAS_PNT1.Models
         public int Edad { get; set; }
 
         [Required(ErrorMessage = "El Tipo de mascota es requerido")]
-        [Display(Name = "Tipo de Mascota")]
+        [Display(Name = "Tipo")]
         [EnumDataType(typeof(Tipo))]
         public Tipo Tipo { get; set; }
 
@@ -41,6 +41,14 @@ namespace HUELLAS_PNT1.Models
   
         [Display(Name = "Castrado")]
         public Boolean Castrado { get; set; }
+
+        [Required(ErrorMessage = "La imagen de la mascota es requerida")]
+        [Display(Name = "Imagen")]
+        [Url ( ErrorMessage="La dirección de URL es inválida")]
+        [RegularExpression(".*(png|jpg|jpeg|gif)$",
+        ErrorMessage = "Ingrese un formato de imagen gif, png, o jpeg")]
+        public String Imagen { get; set; }
+
 
         [Display(Name = "Descripción")]
         public String Descripcion { get; set; }

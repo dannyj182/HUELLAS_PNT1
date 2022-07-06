@@ -41,43 +41,49 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Descripcion)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Edad)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tamanio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Genero)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Vacunado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Castrado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tamanio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vacunado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Castrado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <img class="card-img-top" src="@Url.Content(item.Imagen)" alt="Mascota en adopción" style="height:100px; width:150px">
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
