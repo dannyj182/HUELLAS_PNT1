@@ -28,7 +28,7 @@ namespace HUELLAS_PNT1.Models
         [Display(Name = "Teléfono")]
 
         [Required(ErrorMessage = "El Teléfono es requerido")]
-        [RegularExpression(@"^[0-9,$]*$", ErrorMessage = "Formato de teléfono inválido")]
+        [RegularExpression(@"^\d{10}$" , ErrorMessage = "Formato de teléfono inválido")]
         public String Telefono { get; set; }
 
         [Required(ErrorMessage = "Email es requerido")]
