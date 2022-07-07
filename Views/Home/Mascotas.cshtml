@@ -6,25 +6,46 @@
 }
 
 
-
-@foreach (var item in Model)
-{
-    <div class="d-lg-inline-flex d-sm-flex justify-content-center mb-2 align-items-center" >
-            <div class="card mb-3" style="width: 18rem;">
-                <img class="card-img-top" src="@Url.Content(item.Imagen)" alt="Mascota en adopción">
-                <div class="card-body">
-                    <h5 class="card-title">Hola, soy @Html.DisplayFor(modelItem => item.Nombre)</h5>
-                    <p class="card-text">Edad: @Html.DisplayFor(modelItem => item.Edad)</p>
-                    <p class="card-text">Tipo :@Html.DisplayFor(modelItem => item.Tipo)</p>
-                    <p class="card-text">Tamaño: @Html.DisplayFor(modelItem => item.Tamanio)</p>
-                    <p class="card-text">Género: @Html.DisplayFor(modelItem => item.Genero)</p>
-                    <p class="card-text">Vacunado : @Html.DisplayFor(modelItem => item.Vacunado)</p>
-                    <p class="card-text">Castrado : @Html.DisplayFor(modelItem => item.Castrado)</p>
-                    <p class="card-text">Descripción: @Html.DisplayFor(modelItem => item.Descripcion)</p>
-                    <a class="btn btn-primary text-light" asp-area="" asp-controller="Home" asp-action="Contacto" >Consultar</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-front text-center">
+    <div class="mb-5">
+        <h1 class=" h1-contacto mb-5">Mascotas</h1>
+        <div class="d-flex justify-content-center mb-5">
+            <div class="mr-4">
+                <input type="checkbox" id="Gato" name="Gato" value="Gato">
+                <label for="vehicle1"> Gato</label><br>
+            </div>
+            <div>
+                <input type="checkbox" id="Perro" name="Perro" value="Perro">
+                <label for="Perro"> Perro</label><br>
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="d-lg-inline-flex d-sm-flex justify-content-center mb-2 align-items-center">
+                <div class="card mb-3 mr-4 text-left" style="width: 18rem;">
+                    <img class="card-img-top" style="width:auto; height:160px" src="@Url.Content(item.Imagen)" alt="Mascota en adopción">
+                    <div class="card-body">
+                        <h5 class="card-title">Hola, soy @Html.DisplayFor(modelItem => item.Nombre)</h5>
+                        <p class="card-text">Edad: @Html.DisplayFor(modelItem => item.Edad)</p>
+                        <p class="card-text">Tipo: @Html.DisplayFor(modelItem => item.Tipo)</p>
+                        <p class="card-text">Tamaño: @Html.DisplayFor(modelItem => item.Tamanio)</p>
+                        <p class="card-text">Género: @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text">Vacunado: @Html.DisplayFor(modelItem => item.Vacunado)</p>
+                        <p class="card-text">Castrado: @Html.DisplayFor(modelItem => item.Castrado)</p>
+                        <p class="card-text">Descripción: @Html.DisplayFor(modelItem => item.Descripcion)</p>
+                        <div class="text-center">
+                            <a class="btn text-dark btn-form mb-3" asp-area="" asp-controller="Home" asp-action="Contacto">Consultar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        }
     </div>
 
-}
-
+</body>
+</html>
