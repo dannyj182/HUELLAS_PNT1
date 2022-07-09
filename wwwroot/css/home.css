@@ -1,10 +1,14 @@
 ﻿:root {
     --fondo-front: rgb(255,209,133, 0.4);
+    --fondo-back: #ffffff;
     --btn-color-fondo: #FFBA5C;
     --h1-color: #FDB043;
 }
 
+.body-back{
+    background-color: var(--fondo-back);
 
+}
 
 .body-container {
     background: url("../images/fondo-home.png") no-repeat center center fixed;
@@ -16,6 +20,7 @@
     align-items: center;
 
 }
+
 .footer-propio {
     background-color: #508D70;
 }
@@ -61,6 +66,11 @@ nav .container{
     color: var(--h1-color);
 }
 
+.h1-back {
+    margin-top: 4.5rem;
+    color: black;
+}
+
 .btn-form {
     margin-top: 2rem;
     background-color: var(--btn-color-fondo);
@@ -70,6 +80,29 @@ nav .container{
     border-radius: 10px;
 }
 
+.index-btns a {
+    width:85%;
+}
+
+.carta-index {
+    border: 0.18rem solid #373535;
+    border-radius:15px;
+}
+
+.container-index-back {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.index-btns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top:2rem;
+}
 
 .container-inicio-perro {
     margin-top: 13rem;
@@ -87,6 +120,8 @@ nav .container{
 .body-front {
     background-color: var(--fondo-front);
 }
+
+
 
 @media (max-width: 600px) {
     .container-inicio-perro {
