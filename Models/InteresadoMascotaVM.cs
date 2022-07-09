@@ -17,7 +17,7 @@ namespace HUELLAS_PNT1.Models
         public String TelInteresado { get; set; }
         [Display(Name = "Mail")]
         public String MailInteresado { get; set; }
-        [Display(Name = "Nombre de Mascta")]
+        [Display(Name = "Mascota")]
         public string NombreMascota { get; set; }
     }
 }

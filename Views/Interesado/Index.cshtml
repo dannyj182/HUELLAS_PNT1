@@ -4,14 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" />
+</head>
+<body class="text-center body-back">
+    <h1 class="h1-back">Interesados</h1>
 
-<p>
-    <a asp-action="Create">Crear</a>
-</p>
-<table class="table">
+    <p>
+        <a asp-action="Create" class="btn btn-dark mt-4 px-5 py-2 mb-4">Agregar</a>
+    </p>
+    <table class="table text-left">
         <thead>
-            <tr>
+            <tr class="bg-dark text-light">
                 <th>
                     @Html.DisplayNameFor(model => model.NombreInteresado)
                 </th>
@@ -24,31 +30,45 @@
                 <th>
                     @Html.DisplayNameFor(model => model.NombreMascota)
                 </th>
-                <th></th>
+                <th>
+                    Editar
+                </th>
+                <th>
+                    Detalles
+                </th>
+                <th>
+                    Borrar
+                </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody-index">
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreInteresado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TelInteresado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MailInteresado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreMascota)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdInteresado">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdInteresado">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdInteresado">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreInteresado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelInteresado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MailInteresado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreMascota)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdInteresado" class="text-success"><i class="bi bi-pencil"></i> </a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdInteresado" class="text-primary"><i class="bi bi-eye"></i> </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.IdInteresado" class="text-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
             }
         </tbody>
-</table>
+    </table>
+</body>
+</html>

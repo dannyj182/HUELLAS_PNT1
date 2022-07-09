@@ -20,7 +20,7 @@
         <p>
             <a asp-action="Create" class="btn btn-dark mt-4 px-5 py-2 mb-4">Agregar</a>
         </p>
-        <table class="table text-left">
+        <table class="table">
             <thead>
                 <tr class="bg-dark text-light">
                     <th>
@@ -86,20 +86,21 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Castrado)
                         </td>
-                        <td>
+                        <td class="text-left h6">
                             @Html.DisplayFor(modelItem => item.Descripcion)
                         </td>
                         <td>
                             <img class="card-img-top" src="@Url.Content(item.Imagen)" alt="Mascota en adopción" style="height:100px; width:150px">
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-success"><i class="bi bi-pencil"></i> </a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-success h5"><i class="bi bi-pencil"></i> </a>
                         </td>
                         <td>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="text-primary"><i class="bi bi-eye"></i> </a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="text-primary h5"><i class="bi bi-eye"></i> </a>
                         </td>
                         <td>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger"><i class="bi bi-trash"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger h5"><i class="bi bi-trash"></i></a>
+                        </td>
                     </tr>
                 }
             </tbody>
