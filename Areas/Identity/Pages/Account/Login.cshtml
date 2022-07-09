@@ -1,52 +1,59 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-}
+@{ ViewData["Title"] = "Log in"; }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-front">
+    <h1 class="text-center h1-contacto">@ViewData["Title"] 👤</h1>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+            <section>
+                <form id="account" method="post">
+                    <h6 class="text-center">Use su cuenta para logguearse.</h6>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email" class="control-label h6"></label>
+                        <input asp-for="Input.Email" class="form-control bg-light" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrar nuevo usuario</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+                    <div class="form-group">
+                        <label asp-for="Input.Password" class="control-label h6"></label>
+                        <input asp-for="Input.Password" class="form-control bg-light" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe">
+                                <input asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-center">
+                        <button type="submit" class="btn text-dark btn-form text-center">Log in</button>
+                    </div>
+                    <div class="form-group d-flex justify-content-center flex-column text-center">
+                        <p>
+                            <a class="nav-link text-dark" id="forgot-password" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
+                            <a class="nav-link text-dark" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">¿Nuevo Usuario?, ¡Registrate!</a>
+                        </p>
+     
+                    </div>
+                </form>
+            </section>
+        </div>
+
     </div>
-   
-</div>
+
+</body>
+</html>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

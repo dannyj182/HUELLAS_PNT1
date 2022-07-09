@@ -45,20 +45,23 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage="La dirección de mail es requerida")]
             [EmailAddress]
+            [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+            ErrorMessage = "Ingrese un formato de email válido")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "La contraseña es requerida")]
+            [StringLength(100, ErrorMessage = "La {0} debe tener al menos un mínimo de {2} y máximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "LA confirmación de la contraseña es requerida")]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Repetir contraseña")]
+            [Compare("Password", ErrorMessage = "La contraseña y su confirmación son distintas.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -78,7 +81,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("El usuario creó una nueva cuenta con contraseña.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -88,8 +91,8 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirma tu mail",
+                        $"Por favor confirma tu contraseña con <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click aquí</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
