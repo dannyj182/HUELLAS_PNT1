@@ -1,4 +1,13 @@
-﻿:root {
+﻿
+/* Tipografía Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,500;1,200;1,300&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+:root {
     --fondo-front: rgb(255,209,133, 0.4);
     --fondo-back: #ffffff;
     --btn-color-fondo: #FFBA5C;
@@ -80,8 +89,17 @@ nav .container{
     border-radius: 10px;
 }
 
+.tbody-index tr:nth-child(2n +1){
+    background-color:#c7cbc4;
+}
+
+
+.tbody-index{
+    border: solid black 0.1rem;
+}
+
 .index-btns a {
-    width:85%;
+    width: 85%;
 }
 
 .carta-index {

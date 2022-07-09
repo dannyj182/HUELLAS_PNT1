@@ -7,23 +7,22 @@
     ViewData["Title"] = "Index";
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="~/css/home.css" />
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" />
 </head>
-<body class="text-center">
+<body class="text-center body-back">
     @if (signInManager.IsSignedIn(User))
     {
-        <h1>Index</h1>
+        <h1 class="h1-back">Mascotas</h1>
 
         <p>
-            <a asp-action="Create">Crear</a>
+            <a asp-action="Create" class="btn btn-dark mt-4 px-5 py-2 mb-4">Agregar</a>
         </p>
-        <table class="table">
+        <table class="table text-left">
             <thead>
-                <tr>
+                <tr class="bg-dark text-light">
                     <th>
                         @Html.DisplayNameFor(model => model.Nombre)
                     </th>
@@ -51,10 +50,18 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Imagen)
                     </th>
-                    <th></th>
+                    <th>
+                        Editar
+                    </th>
+                    <th>
+                        Detalles
+                    </th>
+                    <th>
+                        Borrar
+                    </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tbody-index" >
                 @foreach (var item in Model)
                 {
                     <tr>
@@ -86,10 +93,13 @@
                             <img class="card-img-top" src="@Url.Content(item.Imagen)" alt="Mascota en adopción" style="height:100px; width:150px">
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="text-success"><i class="bi bi-pencil"></i> </a>
                         </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="text-primary"><i class="bi bi-eye"></i> </a>
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger"><i class="bi bi-trash"></i></a>
                     </tr>
                 }
             </tbody>

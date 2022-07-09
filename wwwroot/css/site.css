@@ -1,5 +1,14 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿
+
+/* Tipografía Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,500;1,200;1,300&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+
 
 a.navbar-brand {
   white-space: normal;
