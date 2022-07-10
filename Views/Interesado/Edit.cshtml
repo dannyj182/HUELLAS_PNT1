@@ -2,46 +2,56 @@
 
 @{ ViewData["Title"] = "Edit"; }
 
-<h1>Edit</h1>
 
-<h4>Interesado</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NombreCompleto" class="control-label"></label>
-                <input asp-for="NombreCompleto" class="form-control" />
-                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdMascota" class="control-label"></label>
-                <select asp-for="IdMascota" class="form-control" asp-items="@ViewBag.MisMascotas">
-                    <option selected="selected" value="">Seleccione una</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-back text-center">
+    <h1 class="h1-back">Edit</h1>
+
+    <h4>Interesado</h4>
+    <hr />
+    <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
+        <div class="col-md-4">
+            <form asp-action="Editar">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="NombreCompleto" class="control-label"></label>
+                    <input asp-for="NombreCompleto" class="form-control" />
+                    <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdMascota" class="control-label"></label>
+                    <select asp-for="IdMascota" class="form-control" asp-items="@ViewBag.MisMascotas">
+                        <option selected="selected" value="">Seleccione una</option>
+                    </select>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" value="Guardar" class="btn btn-dark btn-form-back" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
+    </div>
+
+</body>
+</html>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
