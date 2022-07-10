@@ -66,6 +66,10 @@ nav .container{
     text-align: center;
 }
 
+.mensaje-contacto {
+    margin-top: 15rem;
+}
+
 .btn-propio {
     margin-top: 2rem;
     background-color: var(--btn-color-fondo);

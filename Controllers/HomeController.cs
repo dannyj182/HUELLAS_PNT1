@@ -56,6 +56,12 @@ namespace HUELLAS_PNT1.Controllers
 
         }
 
+        public IActionResult RespuestaContacto()
+        {
+            return View();
+
+        }
+
         [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> Create([Bind("Id,NombreCompleto,Telefono,Email,IdMascota")] Interesado interesado)
