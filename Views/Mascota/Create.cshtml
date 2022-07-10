@@ -4,75 +4,84 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Crear</h1>
 
-<h4>Mascota</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Edad" class="control-label"></label>
-                <input asp-for="Edad" class="form-control" />
-                <span asp-validation-for="Edad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Tipo>()">
-                    <option selected="selected" value="">Seleccione tipo</option>
-                </select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tamanio" class="control-label"></label>
-                <select asp-for="Tamanio" class="form-control" asp-items="Html.GetEnumSelectList<Tamanio>()">
-                    <option selected="selected" value="">Seleccione tamaño</option>
-                </select>
-                <span asp-validation-for="Tamanio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Genero" class="control-label"></label>
-                <select asp-for="Genero" class="form-control" asp-items="Html.GetEnumSelectList<Genero>()">
-                    <option selected="selected" value="">Seleccione género</option>
-                </select>
-                <span asp-validation-for="Genero" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Vacunado" /> @Html.DisplayNameFor(model => model.Vacunado)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Castrado" /> @Html.DisplayNameFor(model => model.Castrado)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Imagen" class="control-label"></label>
-                <input asp-for="Imagen" class="form-control" />
-                <span asp-validation-for="Imagen" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
-            </div>
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-back text-center">
+    <h1 class="h1-back">Crear</h1>
+    <h4>Mascota</h4>
+    <hr />
+    <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Edad" class="control-label"></label>
+                    <input asp-for="Edad" class="form-control" />
+                    <span asp-validation-for="Edad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tipo" class="control-label"></label>
+                    <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Tipo>()">
+                        <option selected="selected" value="">Seleccione tipo</option>
+                    </select>
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tamanio" class="control-label"></label>
+                    <select asp-for="Tamanio" class="form-control" asp-items="Html.GetEnumSelectList<Tamanio>()">
+                        <option selected="selected" value="">Seleccione tamaño</option>
+                    </select>
+                    <span asp-validation-for="Tamanio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Genero" class="control-label"></label>
+                    <select asp-for="Genero" class="form-control" asp-items="Html.GetEnumSelectList<Genero>()">
+                        <option selected="selected" value="">Seleccione género</option>
+                    </select>
+                    <span asp-validation-for="Genero" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Vacunado" /> @Html.DisplayNameFor(model => model.Vacunado)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Castrado" /> @Html.DisplayNameFor(model => model.Castrado)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input asp-for="Descripcion" class="form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Imagen" class="control-label"></label>
+                    <input asp-for="Imagen" class="form-control" />
+                    <span asp-validation-for="Imagen" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex justify-content-center ">
+                    <input type="submit" value="Crear" class="btn btn-dark btn-form-back" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Volver a la lista</a>
-</div>
+    <div>
+        <a asp-action="Index" class="mb-5 nav-link text-dark">Volver a la lista</a>
+    </div>
+
+</body>
+</html>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

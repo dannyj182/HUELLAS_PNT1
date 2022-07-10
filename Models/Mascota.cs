@@ -43,7 +43,7 @@ namespace HUELLAS_PNT1.Models
         public Boolean Castrado { get; set; }
 
         [Required(ErrorMessage = "La imagen de la mascota es requerido")]
-        [Display(Name = "Imagen")]
+        [Display(Name = "Imagen URL")]
         [Url ( ErrorMessage="La dirección de URL es inválida")]
         [RegularExpression(".*(png|jpg|jpeg|gif)$",
         ErrorMessage = "Ingrese un formato de imagen gif, png, o jpeg")]
