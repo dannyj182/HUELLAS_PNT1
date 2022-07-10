@@ -11,7 +11,7 @@
 </head>
 <body class="body-back text-center">
     <h3 class="h1-back text-decoration-underline text-danger">¿Estás seguro que quieres borrar la siguiente mascota?</h3>
-    <div class="d-flex flex-column justify-content-center" >
+    <form asp-action="Delete"  class="d-flex flex-column justify-content-center" >
         <hr />
         <div class="d-flex justify-content-center mt-2 pt-4 mb-4 flex-column border border-danger">
             <div class="d-flex justify-content-center  mt-2 ">
@@ -82,6 +82,6 @@
             </div>
             <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
         </div>
-    </div>
+    </form>
 </body>
 </html>

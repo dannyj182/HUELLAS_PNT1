@@ -11,12 +11,13 @@
 </head>
 <body class="body-back text-center">
     <h3 class="h1-back text-decoration-underline text-danger ">¿Estás seguro que quieres borrar al siguiente interesado?</h3>
-    <div class="d-flex flex-column justify-content-center">
-        <hr />
-        <div class="d-flex justify-content-center mt-2 pt-4 mb-4 flex-column border border-danger">
+    <form asp-action="Delete" class="d-flex flex-column justify-content-center">
+
+            <hr />
+            <div class="d-flex justify-content-center mt-2 pt-4 mb-4 flex-column border border-danger">
                 <div class="d-flex justify-content-center  mt-2 ">
                     <p class="font-weight-bold mr-1">
-                        @Html.DisplayNameFor(model => model.NombreCompleto) : 
+                        @Html.DisplayNameFor(model => model.NombreCompleto) :
                     </p>
                     <p> @Html.DisplayFor(model => model.NombreCompleto)</p>
                 </div>
@@ -48,6 +49,6 @@
                 <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
             </div>
 
-        </div>
+        </form>
 </body>
 </html>
