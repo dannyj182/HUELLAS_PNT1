@@ -13,7 +13,7 @@
     <h1 class="h1-back">Interesados</h1>
 
     <p>
-        <a asp-action="Create" class="btn btn-dark mt-4 px-5 py-2 mb-4">Agregar</a>
+        <a asp-action="Create" class="btn btn-dark mt-4 px-5 py-2 mb-4"> Agregar <i class="bi bi-plus"></i></a>
     </p>
     <table class="table text-left">
         <thead>
@@ -58,13 +58,13 @@
                     @Html.DisplayFor(modelItem => item.NombreMascota)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdInteresado" class="text-success"><i class="bi bi-pencil"></i> </a>
+                    <a asp-action="Edit" asp-route-id="@item.IdInteresado" class="text-success h5"><i class="bi bi-pencil"></i> </a>
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.IdInteresado" class="text-primary"><i class="bi bi-eye"></i> </a>
+                    <a asp-action="Details" asp-route-id="@item.IdInteresado" class="text-primary h5"><i class="bi bi-eye"></i> </a>
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.IdInteresado" class="text-danger"><i class="bi bi-trash"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.IdInteresado" class="text-danger h5"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
             }
