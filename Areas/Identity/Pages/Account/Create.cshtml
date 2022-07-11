@@ -1,0 +1,45 @@
+﻿@page
+@model RegisterModel
+@{ ViewData["Title"] = "Create"; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-back">
+    <h1 class="text-center h1-back">Crear</h1>
+    <div class="row justify-content-center align-items-center mt-1">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h6 class="text-center">Usuario</h6>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email" class="control-label h6"></label>
+                    <input asp-for="Input.Email" class="form-control bg-light" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password" class="control-label h6"></label>
+                    <input asp-for="Input.Password" class="form-control bg-light" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.ConfirmPassword" class="control-label h6"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control bg-light" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-dark btn-form-back text-center">Crear</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

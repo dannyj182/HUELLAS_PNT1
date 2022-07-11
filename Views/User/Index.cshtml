@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<HUELLAS_PNT1.Models.UserViewModel>
+
+@{
+    ViewData["Title"] = "users";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body class="body-back text-center">
+    <h1 class="h1-back">Crear</h1>
+    <h4>Usuarios</h4>
+    <p>
+        <a asp-area="Identity" asp-page="/Account/Create" class="btn btn-dark  mt-4 px-5 py-2 mb-4">  Agregar <i class="bi bi-plus"></i> </a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr class="bg-dark text-light">
+                <th>Username</th>
+                <th>Email</th>
+                <th>
+                    Editar
+                </th>
+                <th>
+                    Borrar
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody-index">
+            @foreach (var role in Model)
+            {
+            <tr>
+                <td>@role.UserName</td>
+                <td>@role.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@role.UserId" class="text-success h5"><i class="bi bi-pencil"></i> </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@role.UserId" class="text-danger h5"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

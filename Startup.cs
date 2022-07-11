@@ -33,6 +33,7 @@ namespace HUELLAS_PNT1
         public void ConfigureServices(IServiceCollection services)
         {
             {
+                
                 services.AddDbContext<HuellasDatabaseContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionString:EscuelaDBConnection"
                 ]));

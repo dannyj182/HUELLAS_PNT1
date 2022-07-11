@@ -47,6 +47,11 @@ namespace HUELLAS_PNT1.Controllers
             return View(await _context.Pets.ToListAsync());
         }
 
+        public async Task<IActionResult> IndexUserList()
+        {
+            return View(await _context.Users.ToListAsync());
+        }
+        
 
         public IActionResult Contacto()
         {
