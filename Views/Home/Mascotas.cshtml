@@ -27,8 +27,8 @@
         @foreach (var item in Model)
         {
             <div class="d-lg-inline-flex d-sm-flex justify-content-center mb-2 align-items-center">
-                <div class="card mb-3 mr-4 text-left" style="width: 18rem;">
-                    <img class="card-img-top" style="width:auto; height:160px" src="@Url.Content(item.Imagen)" alt="Mascota en adopción">
+                <div class="card mb-3 mr-4 text-left" style="width: 20rem; height:45rem;">
+                    <img class="card-img-top" style="width:auto; height:190px" src="@Url.Content(item.Imagen)" alt="Mascota en adopción">
                     <div class="card-body">
                         <h5 class="card-title">Hola, soy @Html.DisplayFor(modelItem => item.Nombre)</h5>
                         <p class="card-text">Edad: @Html.DisplayFor(modelItem => item.Edad)</p>

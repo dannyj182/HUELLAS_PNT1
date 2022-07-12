@@ -100,9 +100,6 @@ nav .container{
     border-radius: 10px;
 }
 
-.tbody-index tr:nth-child(2n +1){
-    background-color:#c7cbc4;
-}
 
 
 .tbody-index{
