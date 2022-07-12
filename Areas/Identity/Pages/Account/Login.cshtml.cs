@@ -42,8 +42,9 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "El email es requerida")]
-            [EmailAddress]
+            [Required(ErrorMessage = "El Mail es requerido")]
+            [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+             ErrorMessage = "Ingrese un formato de email válido")]
             public string Email { get; set; }
 
             [Required(ErrorMessage = "La contraseña es requerida")]
