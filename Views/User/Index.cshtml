@@ -2,7 +2,7 @@
 @model IEnumerable<HUELLAS_PNT1.Models.UserViewModel>
 
 @{
-    ViewData["Title"] = "users";
+    ViewData["Title"] = "Index";
 }
 
 <!DOCTYPE html>
@@ -19,7 +19,6 @@
     <table class="table">
         <thead>
             <tr class="bg-dark text-light">
-                <th>Username</th>
                 <th>Email</th>
                 <th>
                     Editar
@@ -33,13 +32,12 @@
             @foreach (var role in Model)
             {
             <tr>
-                <td>@role.UserName</td>
                 <td>@role.Email</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@role.UserId" class="text-success h5"><i class="bi bi-pencil"></i> </a>
+                    <a asp-action="Edit" asp-area="" asp-controller="User" asp-route-id="@role.UserId" class="text-success h5"><i class="bi bi-pencil"></i> </a>
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@role.UserId" class="text-danger h5"><i class="bi bi-trash"></i></a>
+                    <a asp-action="Delete" asp-area="" asp-controller="User" asp-route-id="@role.UserId"  class="text-danger h5"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
             }
