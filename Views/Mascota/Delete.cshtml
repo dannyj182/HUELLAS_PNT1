@@ -1,4 +1,6 @@
-﻿@model HUELLAS_PNT1.Models.Mascota
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+@model HUELLAS_PNT1.Models.Mascota
 
 @{
     ViewData["Title"] = "Delete";
@@ -9,79 +11,93 @@
 <head>
     <link rel="stylesheet" href="~/css/home.css" />
 </head>
+
 <body class="body-back text-center">
-    <h3 class="h1-back text-decoration-underline text-danger">¿Estás seguro que quieres borrar la siguiente mascota?</h3>
-    <form asp-action="Delete"  class="d-flex flex-column justify-content-center" >
-        <hr />
-        <div class="d-flex justify-content-center mt-2 pt-4 mb-4 flex-column border border-danger">
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Nombre) :
-                </p>
-                <p>@Html.DisplayFor(model => model.Nombre)</p>
-            </div>
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Edad) :
-                <p> @Html.DisplayFor(model => model.Edad)</p>
-            </div>
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Tipo) :
-                </p>
-                <p> @Html.DisplayFor(model => model.Tipo)</p>
+    @if (signInManager.IsSignedIn(User))
+    {
+        <h3 class="h1-back text-decoration-underline text-danger">¿Estás seguro que quieres borrar la siguiente mascota?</h3>
+        <form asp-action="Delete" class="d-flex flex-column justify-content-center">
+            <hr />
+            <div class="d-flex justify-content-center mt-2 pt-4 mb-4 flex-column border border-danger">
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Nombre) :
+                    </p>
+                    <p>@Html.DisplayFor(model => model.Nombre)</p>
+                </div>
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Edad) :
+                    <p> @Html.DisplayFor(model => model.Edad)</p>
+                </div>
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Tipo) :
+                    </p>
+                    <p> @Html.DisplayFor(model => model.Tipo)</p>
+                </div>
+
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Tamanio) :
+                    </p>
+                    <p>@Html.DisplayFor(model => model.Tamanio)</p>
+                </div>
+
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Genero) :
+                    </p>
+                    <p>@Html.DisplayFor(model => model.Genero)</p>
+                </div>
+
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Vacunado) :
+                    </p>
+                    <p>@Html.DisplayFor(model => model.Vacunado)</p>
+                </div>
+
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Castrado) :
+                    </p>
+                    <p>@Html.DisplayFor(model => model.Castrado)</p>
+                </div>
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Descripcion) :
+                    </p>
+                    <p>@Html.DisplayFor(model => model.Descripcion)</p>
+                </div>
+
+                <div class="d-flex justify-content-center  mt-2 ">
+                    <p class="font-weight-bold mr-1">
+                        @Html.DisplayNameFor(model => model.Imagen) :
+                    </p>
+                    <p> @Html.DisplayFor(model => model.Imagen)</p>
+                </div>
+
             </div>
 
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Tamanio) :
-                </p>
-                <p>@Html.DisplayFor(model => model.Tamanio)</p>
+            <div asp-action="Delete" class="d-flex justify-content-center flex-column text-center">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Borrar" class="btn btn-danger btn-form-back" />
+                </div>
+                <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
             </div>
-
-            <div class="d-flex justify-content-center  mt-2 ">
-            <p class="font-weight-bold mr-1">
-                @Html.DisplayNameFor(model => model.Genero) :
-            </p>
-            <p>@Html.DisplayFor(model => model.Genero)</p>
+        </form>
+    }
+    else
+    {
+        <div class="card border-danger mt-5 mb-5">
+            <h1 class="h1-contacto text-danger">No tiene permisos para acceder a esta página</h1>
+            <img src="~/images/403-forbidden.jpg" class="img-fluid" />
+            <div class="form-group d-flex justify-content-center">
+                <a asp-action="Index" asp-controller="Home" class="btn text-dark btn-form">Volver al inicio</a>
+            </div>
         </div>
-
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Vacunado) :
-                </p>
-                <p>@Html.DisplayFor(model => model.Vacunado)</p>
-            </div>
-
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Castrado) :
-                </p>
-                <p>@Html.DisplayFor(model => model.Castrado)</p>
-            </div>
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Descripcion) :
-                </p>
-                <p>@Html.DisplayFor(model => model.Descripcion)</p>
-            </div>
-
-            <div class="d-flex justify-content-center  mt-2 ">
-                <p class="font-weight-bold mr-1">
-                    @Html.DisplayNameFor(model => model.Imagen) :
-                </p>
-                <p> @Html.DisplayFor(model => model.Imagen)</p>
-            </div>
-
-        </div>
-
-        <div asp-action="Delete" class="d-flex justify-content-center flex-column text-center">
-            <input type="hidden" asp-for="Id" />
-            <div class="d-flex justify-content-center">
-                <input type="submit" value="Borrar" class="btn btn-danger btn-form-back" />
-            </div>
-            <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
-        </div>
-    </form>
+    }
 </body>
 </html>

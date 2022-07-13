@@ -1,4 +1,6 @@
 ﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
 @{ ViewData["Title"] = "BackOffice"; }
 
 
@@ -9,46 +11,59 @@
     <link href="@Url.Content("~/css/home.css")" rel="stylesheet" />
 </head>
 <body class="text-center body-back">
-    <div class="text-center d-flex flex-column align-items-center mb-4">
-        <h1 class="h1-back mb-4">Bienvenido/a</h1>
-        <div class="container-index-back">
-            <div class="mx-3 mb-4 carta-index">
-                <div class="card-body text-center">
-                    <h3>Interesados</h3>
-                    <div class="index-btns">
-                        <a href="~/Interesado/Index" class="btn btn-dark mb-3">Consultar</a>
-                        <a href="~/Interesado/Create" class="btn btn-dark mb-3">Crear</a>
-                        <a href="~/Interesado/Index" class="btn btn-dark mb-3">Editar</a>
-                        <a href="~/Interesado/Index" class="btn btn-dark mb-3">Eliminar</a>
+    @if (signInManager.IsSignedIn(User))
+    {
+        <div class="text-center d-flex flex-column align-items-center mb-4">
+            <h1 class="h1-back mb-4">Bienvenido/a</h1>
+            <div class="container-index-back">
+                <div class="mx-3 mb-4 carta-index">
+                    <div class="card-body text-center">
+                        <h3>Interesados</h3>
+                        <div class="index-btns">
+                            <a href="~/Interesado/Index" class="btn btn-dark mb-3">Consultar</a>
+                            <a href="~/Interesado/Create" class="btn btn-dark mb-3">Crear</a>
+                            <a href="~/Interesado/Index" class="btn btn-dark mb-3">Editar</a>
+                            <a href="~/Interesado/Index" class="btn btn-dark mb-3">Eliminar</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="carta-index mx-3 mb-4">
-                <div class="card-body text-center">
-                    <h3>Mascotas</h3>
-                    <div class="index-btns">
-                        <a href="~/Mascota/Index" class="btn btn-dark mb-3">Consultar</a>
-                        <a href="~/Mascota/Create" class="btn btn-dark mb-3">Crear</a>
-                        <a href="~/Mascota/Index" class="btn btn-dark mb-3">Editar</a>
-                        <a href="~/Mascota/Index" class="btn btn-dark mb-3">Eliminar</a>
+                <div class="carta-index mx-3 mb-4">
+                    <div class="card-body text-center">
+                        <h3>Mascotas</h3>
+                        <div class="index-btns">
+                            <a href="~/Mascota/Index" class="btn btn-dark mb-3">Consultar</a>
+                            <a href="~/Mascota/Create" class="btn btn-dark mb-3">Crear</a>
+                            <a href="~/Mascota/Index" class="btn btn-dark mb-3">Editar</a>
+                            <a href="~/Mascota/Index" class="btn btn-dark mb-3">Eliminar</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mx-3 mb-4 carta-index">
-                <div class="card-body text-center">
-                    <h3>Usuarios</h3>
-                    <div class="index-btns">
-                        <a href="~/User/Index" class="btn btn-dark mb-3">Consultar</a>
-                        <a asp-area="Identity" asp-page="/Account/Create" class="btn btn-dark mb-3">Crear</a>
-                        <a href="~/User/Index" class="btn btn-dark mb-3">Editar</a>
-                        <a href="~/User/Index" class="btn btn-dark mb-3">Eliminar</a>
+                <div class="mx-3 mb-4 carta-index">
+                    <div class="card-body text-center">
+                        <h3>Usuarios</h3>
+                        <div class="index-btns">
+                            <a href="~/User/Index" class="btn btn-dark mb-3">Consultar</a>
+                            <a asp-area="Identity" asp-page="/Account/Create" class="btn btn-dark mb-3">Crear</a>
+                            <a href="~/User/Index" class="btn btn-dark mb-3">Editar</a>
+                            <a href="~/User/Index" class="btn btn-dark mb-3">Eliminar</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="card border-danger mt-5 mb-5">
+            <h1 class="h1-contacto text-danger">No tiene permisos para acceder a esta página</h1>
+            <img src="~/images/403-forbidden.jpg" class="img-fluid" />
+            <div class="form-group d-flex justify-content-center">
+                <a asp-action="Index" asp-controller="Home" class="btn text-dark btn-form">Volver al inicio</a>
+            </div>
+        </div>
+    }
 </body>
 </html>

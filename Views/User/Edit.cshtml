@@ -1,4 +1,7 @@
-﻿@model HUELLAS_PNT1.Models.UserViewModel
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+@model HUELLAS_PNT1.Models.UserViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -10,40 +13,54 @@
     <link rel="stylesheet" href="~/css/home.css" />
 </head>
 <body class="body-back text-center">
-    <h1 class="h1-back">Editar</h1>
-    <h4>Usuario</h4>
-    <hr />
-    <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
-        <div class="col-md-4">
-            <form asp-action="Edit">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <input type="hidden" asp-for="UserId" />
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CurrentPassword" class="control-label"></label>
-                    <input asp-for="CurrentPassword" type="password" class="form-control" />
-                    <span asp-validation-for="CurrentPassword" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="NewPassword" class="control-label"></label>
-                    <input asp-for="NewPassword"  type="password" class="form-control" />
-                    <span asp-validation-for="NewPassword" class="text-danger"></span>
-                </div>
+    @if (signInManager.IsSignedIn(User))
+    {
+        <h1 class="h1-back">Editar</h1>
+        <h4>Usuario</h4>
+        <hr />
+        <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <input type="hidden" asp-for="UserId" />
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CurrentPassword" class="control-label"></label>
+                        <input asp-for="CurrentPassword" type="password" class="form-control" />
+                        <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewPassword" class="control-label"></label>
+                        <input asp-for="NewPassword" type="password" class="form-control" />
+                        <span asp-validation-for="NewPassword" class="text-danger"></span>
+                    </div>
 
-                <div class="form-group d-flex justify-content-center">
-                    <input type="submit" value="Guardar" class="btn btn-success btn-form-back" />
-                </div>
-            </form>
+                    <div class="form-group d-flex justify-content-center">
+                        <input type="submit" value="Guardar" class="btn btn-success btn-form-back" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
-    </div>
+        <div>
+            <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
+        </div>
+    }
+    else
+    {
+        <div class="card border-danger mt-5 mb-5">
+            <h1 class="h1-contacto text-danger">No tiene permisos para acceder a esta página</h1>
+            <img src="~/images/403-forbidden.jpg" class="img-fluid" />
+            <div class="form-group d-flex justify-content-center">
+                <a asp-action="Index" asp-controller="Home" class="btn text-dark btn-form">Volver al inicio</a>
+            </div>
+        </div>
+    }
+
 </body>
 </html>
 

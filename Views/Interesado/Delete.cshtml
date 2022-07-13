@@ -1,4 +1,7 @@
-﻿@model HUELLAS_PNT1.Models.Interesado
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+@model HUELLAS_PNT1.Models.Interesado
 
 @{
     ViewData["Title"] = "Delete";
@@ -10,8 +13,10 @@
     <link rel="stylesheet" href="~/css/home.css" />
 </head>
 <body class="body-back text-center">
-    <h3 class="h1-back text-decoration-underline text-danger ">¿Estás seguro que quieres borrar al siguiente interesado?</h3>
-    <form asp-action="Delete" class="d-flex flex-column justify-content-center">
+    @if (signInManager.IsSignedIn(User))
+    {
+        <h3 class="h1-back text-decoration-underline text-danger ">¿Estás seguro que quieres borrar al siguiente interesado?</h3>
+        <form asp-action="Delete" class="d-flex flex-column justify-content-center">
 
             <hr />
             <div class="d-flex justify-content-center mt-2 pt-4 mb-4 flex-column border border-danger">
@@ -50,5 +55,16 @@
             </div>
 
         </form>
+    }
+    else
+    {
+        <div class="card border-danger mt-5 mb-5">
+            <h1 class="h1-contacto text-danger">No tiene permisos para acceder a esta página</h1>
+            <img src="~/images/403-forbidden.jpg" class="img-fluid" />
+            <div class="form-group d-flex justify-content-center">
+                <a asp-action="Index" asp-controller="Home" class="btn text-dark btn-form">Volver al inicio</a>
+            </div>
+        </div>
+    }
 </body>
 </html>

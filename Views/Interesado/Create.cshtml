@@ -1,4 +1,7 @@
-﻿@model HUELLAS_PNT1.Models.Interesado
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+@model HUELLAS_PNT1.Models.Interesado
 
 @{ ViewData["Title"] = "Create"; }
 
@@ -9,46 +12,59 @@
     <link rel="stylesheet" href="~/css/home.css" />
 </head>
 <body class="body-back text-center">
-    <h1 class="h1-back">Crear</h1>
+    @if (signInManager.IsSignedIn(User))
+    {
+        <h1 class="h1-back">Crear</h1>
 
-    <h4>Interesado</h4>
-    <hr />
-    <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="NombreCompleto" class="control-label"></label>
-                    <input asp-for="NombreCompleto" class="form-control" />
-                    <span asp-validation-for="NombreCompleto" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Telefono" class="control-label"></label>
-                    <input asp-for="Telefono" class="form-control" />
-                    <span asp-validation-for="Telefono" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="IdMascota" class="control-label"></label>
-                    <select asp-for="IdMascota" class="form-control" asp-items="@ViewBag.MisMascotas">
-                        <option selected="selected" value="">Seleccione una</option>
-                    </select>
-                    <span asp-validation-for="IdMascota" class="text-danger"></span>
-                </div>
-                <div class="form-group d-flex justify-content-center">
-                    <input type="submit" value="Create" class="btn btn-dark btn-form-back" />
-                </div>
-            </form>
+        <h4>Interesado</h4>
+        <hr />
+        <div class="row  d-flex  justify-content-center mt-5 text-left mb-4">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="NombreCompleto" class="control-label"></label>
+                        <input asp-for="NombreCompleto" class="form-control" />
+                        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Telefono" class="control-label"></label>
+                        <input asp-for="Telefono" class="form-control" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IdMascota" class="control-label"></label>
+                        <select asp-for="IdMascota" class="form-control" asp-items="@ViewBag.MisMascotas">
+                            <option selected="selected" value="">Seleccione una</option>
+                        </select>
+                        <span asp-validation-for="IdMascota" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-flex justify-content-center">
+                        <input type="submit" value="Create" class="btn btn-dark btn-form-back" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
-    </div>
+        <div>
+            <a class="mb-5 nav-link text-dark" asp-action="Index">Volver a la lista</a>
+        </div>
+    }
+    else
+    {
+        <div class="card border-danger mt-5 mb-5">
+            <h1 class="h1-contacto text-danger">No tiene permisos para acceder a esta página</h1>
+            <img src="~/images/403-forbidden.jpg" class="img-fluid" />
+            <div class="form-group d-flex justify-content-center">
+                <a asp-action="Index" asp-controller="Home" class="btn text-dark btn-form">Volver al inicio</a>
+            </div>
+        </div>
+    }
 </body>
 </html>
 
