@@ -62,7 +62,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Home/BackOffice");
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
@@ -74,7 +74,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Home/BackOffice");
 
             if (ModelState.IsValid)
             {
@@ -86,6 +86,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
                     _logger.LogInformation("Usuario logueado");
                     return LocalRedirect("~/Home/BackOffice");
                 }
+
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });

@@ -18,10 +18,10 @@
     <header>
         @if (SignInManager.IsSignedIn(User))
         {
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark bg-opac text-white border-bottom box-shadow navbar-propia ">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark bg-opac text-white box-shadow navbar-propia ">
                 <div class="container">
                     <div class="pt-2">
-                        <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">🐾 Huellas</a>
+                        <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="BackOffice">🐾 Huellas</a>
                     </div>
                     <div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -51,7 +51,7 @@
         }
         else
         {
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white bg-opac border-bottom box-shadow mb-2 navbar-propia ">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white bg-opac border-bottom box-shadow mb-2 navbar-propia py-3 ">
                 <div class="container">
                     <div>
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">🐾 Huellas</a>
