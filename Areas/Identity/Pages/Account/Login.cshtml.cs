@@ -42,7 +42,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "El Mail es requerido")]
+            [Required(ErrorMessage = "El mail es requerido")]
             [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
              ErrorMessage = "Ingrese un formato de email válido")]
             public string Email { get; set; }

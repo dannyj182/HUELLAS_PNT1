@@ -48,7 +48,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
             [Required(ErrorMessage="La dirección de mail es requerida")]
             [EmailAddress]
             [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
-            ErrorMessage = "Ingrese un formato de email válido")]
+             ErrorMessage = "Ingrese un formato de email válido")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -58,7 +58,7 @@ namespace HUELLAS_PNT1.Areas.Identity.Pages.Account
             [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
-            [Required(ErrorMessage = "LA confirmación de la contraseña es requerida")]
+            [Required(ErrorMessage = "La confirmación de la contraseña es requerida")]
             [DataType(DataType.Password)]
             [Display(Name = "Repetir contraseña")]
             [Compare("Password", ErrorMessage = "La contraseña y su confirmación son distintas.")]
